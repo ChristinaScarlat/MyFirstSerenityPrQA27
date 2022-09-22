@@ -1,6 +1,7 @@
 package org.fasttrack.features;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import org.fasttrack.utils.Constants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -14,8 +15,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginWithValidCredentialsTest() {
         loginSteps.navigateToLoginPage();
-        loginSteps.setUserEmail("alexandra.christina@yahoo.com");
-        loginSteps.setPassword("1234567");
+        loginSteps.setUserEmail(Constants.USER_EMAIl);
+        loginSteps.setPassword(Constants.USER_PASS);
         loginSteps.clickLogin();
         loginSteps.verifyUserIsLoggedIn("Christina Scarlat");
     }
@@ -23,7 +24,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginWithInvalidPasswordTest() {
         loginSteps.navigateToLoginPage();
-        loginSteps.setUserEmail("alexandra.christina@yahoo.com");
+        loginSteps.setUserEmail(Constants.USER_EMAIl);
         loginSteps.setPassword("123456a");
         loginSteps.clickLogin();
         loginSteps.verifyUserNotLoggedIn();

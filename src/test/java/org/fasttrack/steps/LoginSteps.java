@@ -1,7 +1,6 @@
 package org.fasttrack.steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 
 public class LoginSteps extends BaseSteps {

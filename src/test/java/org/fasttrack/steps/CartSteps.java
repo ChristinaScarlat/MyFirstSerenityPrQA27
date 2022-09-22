@@ -1,7 +1,6 @@
 package org.fasttrack.steps;
 
 import net.thucydides.core.annotations.Step;
-import org.jruby.ir.operands.SValue;
 import org.junit.Assert;
 
 public class CartSteps extends BaseSteps{
@@ -36,24 +35,22 @@ public class CartSteps extends BaseSteps{
         Assert.assertEquals("SHOPPING CART IS EMPTY"
                 ,cartPage.getEmptyCartMessage());
     }
-    @Step
-    public void proceedToCheckOut() {
-        cartPage.clickProceedToCheckOutButton();
-    }
-    @Step public void checkCheckoutMessage(){
-        Assert.assertEquals("CHECKOUT AS A GUEST OR REGISTER"
-                ,cartPage.getCheckoutMessage());
-    }
-    @Step
-    public void checkOutWithRegisterButton(){
-        cartPage.checkOutwithRegister();
-        cartPage.continueBTNCheckOutRegister();
 
-    }
     @Step
     public void selectFromDropDownSortByPosition() {
         productPage.selectFromDropDownSortByPosition();
     }
 
-
+    @Step
+    public void checkSuccessMessage(String productName){
+        Assert.assertEquals((productName + " was added to your shopping cart.").toLowerCase(), cartPage.getSuccessMessage().toLowerCase());
+    }
+    @Step
+    public void checkSubtotalPrice(){
+        Assert.assertTrue(cartPage.checkIfSubtotalMatches());
+    }
+    @Step
+    public void checkTotalPrice(){
+        Assert.assertTrue(cartPage.checkIfTotalPriceMatches());
+    }
 }

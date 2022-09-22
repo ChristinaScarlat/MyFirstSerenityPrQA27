@@ -1,12 +1,13 @@
 package org.fasttrack.features;
 
+import org.fasttrack.utils.Constants;
 import org.junit.Test;
 
 
 public class SearchTest extends BaseTest {
     @Test
     public void loginAndSearchForProductNameTest(){
-        loginSteps.doLogin("alexandra.christina@yahoo.com","1234567");
+        loginSteps.doLogin(Constants.USER_EMAIl,Constants.USER_PASS);
         searchSteps.searchForKeyword("necklace");
         searchSteps.findProductWithNameInListAndOpen("SILVER DESERT NECKLACE");
 
@@ -14,7 +15,7 @@ public class SearchTest extends BaseTest {
 
     @Test
     public void loginAndSearchForSecondProductNameTest(){
-        loginSteps.doLogin("alexandra.christina@yahoo.com","1234567");
+        loginSteps.doLogin(Constants.USER_EMAIl,Constants.USER_PASS);
         searchSteps.searchForKeyword("shirt");
         searchSteps.findProductWithNameInListAndOpen("FRENCH CUFF COTTON TWILL OXFORD");
 

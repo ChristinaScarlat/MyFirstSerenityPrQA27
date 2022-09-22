@@ -6,24 +6,25 @@ import org.junit.Assert;
 public class WishlistSteps extends BaseSteps{
 
     @Step
-    public void selectElemetToAddToWishlist(){
-        productPage.newElementSelectToWishlist();
+    public void selectElementToAddToWishlist(){
+        wishlistPage.newElementSelectToWishlist();
     }
     @Step
-    public void addElemetToWishlist(){
-        productPage.clickWishListBTN();
+    public void addElementToWishlist(){
+        wishlistPage.clickWishListBTN();
 
     }
     @Step
     public void checkWishlistMessage(){
-        Assert.assertEquals(("LOGIN OR CREATE AN ACCOUNT"), productPage.setAddToWishListMsg());
+        Assert.assertEquals(("LOGIN OR CREATE AN ACCOUNT"), wishlistPage.setAddToWishListMsg());
     }
     @Step
     public void getWishlistMsg(String productname){
-        Assert.assertEquals(productname.toLowerCase() + " has been added to your wishlist. click here to continue shopping.",productPage.setWishListMsg().toLowerCase());
+        Assert.assertEquals(productname.toLowerCase() + " has been added to your wishlist. click here to continue shopping.",wishlistPage.setWishListMsg().toLowerCase());
     }
-
-
-
+    @Step
+    public void testOverHoverWomenCategory(){
+        productPage.hoverOverCategorySerenityTest();
+    }
 
 }
